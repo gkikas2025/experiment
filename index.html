@@ -2,26 +2,55 @@
 <html lang="el">
 <head>
   <meta charset="UTF-8">
-  <title>Σενάριο 1 – High Motivation</title>
+  <title>High Motivation Scenario</title>
   <style>
-    body { font-family: Arial, sans-serif; margin: 30px; }
-    iframe { width: 100%; max-width: 400px; height: 500px; border: 1px solid #ccc; }
-    .container { max-width: 800px; margin: auto; }
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+    h1 {
+      text-align: center;
+    }
+    .container {
+      max-width: 800px;
+      margin: 0 auto;
+    }
+    .chatbot-container {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      background-color: white;
+    }
   </style>
 </head>
 <body>
   <div class="container">
     <h1>High Motivation Scenario</h1>
     <p>Καλωσόρισες στο πρώτο σενάριο του πειράματος. Διάβασε προσεκτικά τις οδηγίες πριν ξεκινήσεις την αλληλεπίδραση με το chatbot.</p>
-
-    <!-- ΕΔΩ ΒΑΖΕΙΣ ΤΟ CHATBOT -->
-    <iframe
-      src="https://creator.voiceflow.com/share/67d13d93fe835fadf86ddc3f/development"
-      allow="microphone; autoplay; clipboard-write"
-      loading="lazy">
-    </iframe>
-
     <p>Συνεχίζοντας την αλληλεπίδραση, ακολούθησε τις οδηγίες που σου δίνει το chatbot.</p>
   </div>
+
+  <!-- Voiceflow Web Chat -->
+  <div id="vf-web-chat" class="chatbot-container"></div>
+  <script src="https://cdn.voiceflow.com/widget/bundle.mjs" type="module"></script>
+  <script type="module">
+    import VoiceflowWebChat from 'https://cdn.voiceflow.com/widget/bundle.mjs';
+    
+    const vf = new VoiceflowWebChat.default({
+      versionID: '67d13d93fe835fadf86ddc3f', // Βάλε εδώ το Chatbot ID σου
+      url: 'https://general-runtime.voiceflow.com',
+      container: document.getElementById('vf-web-chat')
+    });
+    
+    vf.start();
+  </script>
 </body>
 </html>
