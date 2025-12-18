@@ -1,42 +1,153 @@
-<script type="text/javascript">
-  (function(d, t) {
-      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-      v.onload = function() {
-        window.voiceflow.chat.load({
-          verify: { projectID: '67d13d93fe835fadf86ddc3e' },
-          url: 'https://general-runtime.voiceflow.com',
-          versionID: 'production',
-          voice: {
-            url: "https://runtime-api.voiceflow.com"
-          }
-        });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>AI Movie Recommender Experiment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
+      min-height: 100vh;
+      color: #fff;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: url('https://images.unsplash.com/photo-1612831455540-7b2ecbe7d5d5?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
+      opacity: 0.15;
+      z-index: 0;
+    }
+
+    .wrapper {
+      position: relative;
+      z-index: 1;
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 40px 25px;
+      background-color: rgba(0,0,0,0.6);
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+    }
+
+    h2 {
+      color: #ffd700;
+      margin-top: 30px;
+    }
+
+    p, li {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      margin-bottom: 15px;
+    }
+
+    ol li {
+      margin-bottom: 10px;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px solid #ffd700;
+      margin: 40px 0;
+    }
+
+    a {
+      color: #1abc9c;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Chatbot container */
+    #vf-chat {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      width: 350px;
+      height: 500px;
+      border-radius: 15px;
+      overflow: hidden;
+      box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+      background-color: #111;
+      z-index: 1000;
+      transition: width 0.3s ease, height 0.3s ease;
+    }
+
+    #vf-chat:hover {
+      width: 400px;
+      height: 550px;
+    }
+
+    @media (max-width: 600px) {
+      #vf-chat {
+        width: 90%;
+        height: 450px;
+        bottom: 15px;
+        right: 5%;
       }
-      v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-  })(document, 'script');
-</script>
-<h2 data-end="379" data-start="321"><strong data-end="377" data-start="327">Welcome to Your Personal AI Movie Recommender!</strong></h2>
+      .wrapper {
+        padding: 20px 15px;
+      }
+    }
+  </style>
+</head>
+<body>
 
-<p data-end="573" data-start="381"><strong data-end="397" data-start="381">Hi there!&nbsp;</strong><br data-end="400" data-start="397" />
-Looking for your next favorite movie? You’re in the right place! Our AI-powered movie recommender is here to help you discover upcoming films tailored to your preferences.</p>
+  <div class="wrapper">
+    <!-- Ολόκληρο το HTML σου όπως το έστειλες -->
+    <script type="text/javascript">
+      (function(d, t) {
+          var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+          v.onload = function() {
+            window.voiceflow.chat.load({
+              verify: { projectID: '67d13d93fe835fadf86ddc3e' },
+              url: 'https://general-runtime.voiceflow.com',
+              versionID: 'production',
+              voice: {
+                url: "https://runtime-api.voiceflow.com"
+              }
+            });
+          }
+          v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+      })(document, 'script');
+    </script>
 
-<p data-end="720" data-start="575">In this short experiment, you’ll interact with the AI agent, receive a movie recommendation, and tell us what you think. Let’s get started!&nbsp;</p>
+    <h2 data-end="379" data-start="321"><strong data-end="377" data-start="327">Welcome to Your Personal AI Movie Recommender!</strong></h2>
 
-<hr data-end="725" data-start="722" />
-<h2 data-end="763" data-start="727"></h2>
+    <p data-end="573" data-start="381"><strong data-end="397" data-start="381">Hi there!&nbsp;</strong><br data-end="400" data-start="397" />
+    Looking for your next favorite movie? You’re in the right place! Our AI-powered movie recommender is here to help you discover upcoming films tailored to your preferences.</p>
 
-<p data-end="1072" data-start="765"><strong data-end="781" data-start="765">Scenario 1:</strong><br data-end="784" data-start="781" />
-Imagine you are <strong data-end="849" data-start="800">actively searching for a great movie to watch</strong> in the near future. You want to make sure you choose something that truly fits your taste. The AI agent will recommend upcoming movies based on your preferences, along with an explanation for why it made that suggestion.</p>
+    <p data-end="720" data-start="575">In this short experiment, you’ll interact with the AI agent, receive a movie recommendation, and tell us what you think. Let’s get started!&nbsp;</p>
 
-<p data-end="1072" data-start="765">or</p>
+    <hr data-end="725" data-start="722" />
+    <h2 data-end="763" data-start="727"></h2>
 
-<p data-end="1072" data-start="765"><strong data-end="1434" data-start="1418">Scenario 2:</strong><br data-end="1437" data-start="1434" />
-Imagine you’re <strong data-end="1469" data-start="1452">just browsing</strong> to see what movies are coming soon. You’re not in urgent need of a recommendation, but you’re curious about what’s out there. The AI agent will suggest movies based on your general preferences.</p>
+    <p data-end="1072" data-start="765"><strong data-end="781" data-start="765">Scenario 1:</strong><br data-end="784" data-start="781" />
+    Imagine you are <strong data-end="849" data-start="800">actively searching for a great movie to watch</strong> in the near future. You want to make sure you choose something that truly fits your taste. The AI agent will recommend upcoming movies based on your preferences, along with an explanation for why it made that suggestion.</p>
 
-<p data-end="1072" data-start="765">&nbsp;<strong data-end="1092" data-start="1077">What to do:</strong></p>
+    <p data-end="1072" data-start="765">or</p>
 
-<ol>
-	<li data-end="1072" data-start="765"><strong data-end="1129" data-start="1099">Interact with the AI agent</strong> below and select your preferences.</li>
-	<li data-end="1072" data-start="765">Receive a <strong data-end="1218" data-start="1181">personalized movie recommendation</strong>.</li>
-	<li data-end="1072" data-start="765"><strong data-end="1278" data-start="1251">Complete a short survey</strong> (just 5-6&nbsp;minutes) about your experience.</li>
-	<li data-end="1374" data-start="1324"><strong data-end="1343" data-start="1327">Survey Link:</strong>&nbsp;<a href="https://forms.gle/L3bYjvXyim3fGtHQ6">Questionnaire</a></li>
-</ol>
+    <p data-end="1072" data-start="765"><strong data-end="1434" data-start="1418">Scenario 2:</strong><br data-end="1437" data-start="1434" />
+    Imagine you’re <strong data-end="1469" data-start="1452">just browsing</strong> to see what movies are coming soon. You’re not in urgent need of a recommendation, but you’re curious about what’s out there. The AI agent will suggest movies based on your general preferences.</p>
+
+    <p data-end="1072" data-start="765">&nbsp;<strong data-end="1092" data-start="1077">What to do:</strong></p>
+
+    <ol>
+      <li data-end="1072" data-start="765"><strong data-end="1129" data-start="1099">Interact with the AI agent</strong> below and select your preferences.</li>
+      <li data-end="1072" data-start="765">Receive a <strong data-end="1218" data-start="1181">personalized movie recommendation</strong>.</li>
+      <li data-end="1072" data-start="765"><strong data-end="1278" data-start="1251">Complete a short survey</strong> (just 5-6&nbsp;minutes) about your experience.</li>
+      <li data-end="1374" data-start="1324"><strong data-end="1343" data-start="1327">Survey Link:</strong>&nbsp;<a href="https://forms.gle/L3bYjvXyim3fGtHQ6">Questionnaire</a></li>
+    </ol>
+  </div>
+
+  <!-- Chatbot floating κάτω δεξιά -->
+  <div id="vf-chat"></div>
+
+</body>
+</html>
