@@ -5,63 +5,63 @@
 <title>AI Movie Recommender Experiment</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <style>
-  body {
-    margin: 0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background: linear-gradient(to bottom right, #0f2027, #203a43, #2c5364);
-    color: #fff;
-    min-height: 100vh;
-  }
-  body::before {
-    content:"";
-    position: fixed;
-    top:0; left:0; right:0; bottom:0;
-    background: url('https://images.unsplash.com/photo-1612831455540-7b2ecbe7d5d5?auto=format&fit=crop&w=1950&q=80') no-repeat center center/cover;
-    opacity: 0.15;
-    z-index: 0;
-  }
-  .wrapper {
-    position: relative;
-    z-index: 1;
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 50px 30px;
-    background-color: rgba(0,0,0,0.6);
-    border-radius: 20px;
-    box-shadow: 0 15px 40px rgba(0,0,0,0.5);
-  }
-  h2 {
-    color: #ffd700;
-    margin-top: 30px;
-  }
-  p, li {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    margin-bottom: 18px;
-  }
-  ol li {
-    margin-bottom: 12px;
-  }
-  hr {
-    border: none;
-    border-top: 2px solid #ffd700;
-    margin: 40px 0;
-  }
-  a {
-    color: #1abc9c;
-    font-weight: bold;
-    text-decoration: none;
-  }
-  a:hover {
-    text-decoration: underline;
-  }
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f0f4f8; /* πιο φωτεινό */
+  min-height: 100vh;
+  color: #333;
+}
+body::before {
+  content:"";
+  position: fixed;
+  top:0; left:0; right:0; bottom:0;
+  background: url('https://images.unsplash.com/photo-1508780709619-79562169bc64?auto=format&fit=crop&w=1950&q=80') center/cover no-repeat;
+  opacity: 0.2;
+  z-index: 0;
+}
+.wrapper {
+  position: relative;
+  z-index: 1;
+  max-width: 900px;
+  margin: 60px auto;
+  padding: 50px 35px;
+  background-color: rgba(255,255,255,0.85);
+  border-radius: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+}
+h2 {
+  color: #ff6f61; /* πιο ζεστό χρώμα */
+  margin-top: 30px;
+}
+p, li {
+  font-size: 1.15rem;
+  line-height: 1.7;
+  margin-bottom: 18px;
+}
+ol li {
+  margin-bottom: 12px;
+}
+hr {
+  border: none;
+  border-top: 2px solid #ff6f61;
+  margin: 40px 0;
+}
+a {
+  color: #1abc9c;
+  font-weight: bold;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
 </style>
 </head>
 <body>
 
 <div class="wrapper">
 
-<!-- Ακριβώς το HTML σου, χωρίς καμία αλλαγή -->
+<!-- Ακριβώς το HTML σου, χωρίς αλλαγές -->
 <script type="text/javascript">
   (function(d, t) {
       var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
