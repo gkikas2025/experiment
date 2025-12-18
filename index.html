@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <title>AI Movie Recommender Experiment</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<style> 
+<style>
   body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     margin: 0; padding: 0;
@@ -28,7 +28,19 @@
   hr { border:none; border-top:2px solid #ffd700; margin:40px 0; }
   a { color:#1abc9c; text-decoration:none; }
   a:hover { text-decoration:underline; }
+
+  /* Chatbot button */
+  #chat-toggle {
+    position: fixed; bottom:20px; right:20px;
+    width:60px; height:60px; border-radius:50%;
+    background-color:#1abc9c; border:none; cursor:pointer;
+    box-shadow:0 5px 15px rgba(0,0,0,0.3); z-index:1000;
+    font-size:24px;
+  }
+
+  /* Chatbot iframe container */
   #vf-chat {
+    display:none;
     position: fixed; bottom:20px; right:20px;
     width:350px; height:500px; border-radius:15px;
     overflow:hidden; box-shadow:0 10px 20px rgba(0,0,0,0.5);
@@ -36,16 +48,18 @@
     transition: width 0.3s ease, height 0.3s ease;
   }
   #vf-chat:hover { width:400px; height:550px; }
+
   @media (max-width:600px){
     #vf-chat { width:90%; height:450px; bottom:15px; right:5%; }
     .wrapper { padding:20px 15px; }
+    #chat-toggle { bottom:15px; right:5%; }
   }
 </style>
 </head>
 <body>
 
 <div class="wrapper">
-  <!-- Όλο το HTML σου ατόφιο -->
+  <!-- Ολόκληρο το HTML σου ατόφιο -->
   <h2 data-end="379" data-start="321"><strong data-end="377" data-start="327">Welcome to Your Personal AI Movie Recommender!</strong></h2>
 
   <p data-end="573" data-start="381"><strong data-end="397" data-start="381">Hi there!&nbsp;</strong><br data-end="400" data-start="397" />
@@ -74,21 +88,39 @@
   </ol>
 </div>
 
-<!-- CHATBOT έξω από wrapper -->
+<!-- Chatbot button -->
+<button id="chat-toggle">💬</button>
+<!-- Chatbot iframe container -->
 <div id="vf-chat"></div>
+
 <script type="text/javascript">
-(function(d, t) {
-    var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
-    v.onload = function() {
-      window.voiceflow.chat.load({
-        verify: { projectID: '67d13d93fe835fadf86ddc3e' },
-        url: 'https://general-runtime.voiceflow.com',
-        versionID: 'production',
-        voice: { url: "https://runtime-api.voiceflow.com" }
-      });
+  const chatBtn = document.getElementById('chat-toggle');
+  const chatDiv = document.getElementById('vf-chat');
+
+  let chatLoaded = false;
+  chatBtn.addEventListener('click', () => {
+    chatDiv.style.display = 'block';
+    chatDiv.style.width = '350px';
+    chatDiv.style.height = '500px';
+    chatBtn.style.display = 'none'; // κρύβουμε το κουμπί
+    if(!chatLoaded){
+      chatLoaded = true;
+      (function(d,t){
+        var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+        v.onload = function(){
+          window.voiceflow.chat.load({
+            verify: { projectID:'67d13d93fe835fadf86ddc3e' },
+            url:'https://general-runtime.voiceflow.com',
+            versionID:'production',
+            voice:{ url:"https://runtime-api.voiceflow.com" }
+          });
+        }
+        v.src="https://cdn.voiceflow.com/widget-next/bundle.mjs";
+        v.type="text/javascript";
+        s.parentNode.insertBefore(v,s);
+      })(document,'script');
     }
-    v.src = "https://cdn.voiceflow.com/widget-next/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
-})(document, 'script');
+  });
 </script>
 
 </body>
