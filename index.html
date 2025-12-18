@@ -1,33 +1,24 @@
 <!DOCTYPE html>
 <html lang="el">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF‑8">
   <title>High Motivation Scenario</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font‑family: Arial, sans‑serif;
       margin: 30px;
-      background-color: #f9f9f9;
+      background: #f9f9f9;
       color: #333;
     }
-    h1 {
-      text-align: center;
-    }
-    .container {
-      max-width: 800px;
-      margin: 0 auto;
-    }
-    .chatbot-container {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      width: 350px;
+    h1 { text‑align: center; }
+    .container { max‑width: 800px; margin: auto; }
+    #voiceflowChatContainer {
+      width: 100%;
+      max‑width: 400px;
       height: 500px;
+      margin: 30px auto;
       border: 1px solid #ccc;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      background-color: white;
+      border‑radius: 8px;
     }
   </style>
 </head>
@@ -35,22 +26,34 @@
   <div class="container">
     <h1>High Motivation Scenario</h1>
     <p>Καλωσόρισες στο πρώτο σενάριο του πειράματος. Διάβασε προσεκτικά τις οδηγίες πριν ξεκινήσεις την αλληλεπίδραση με το chatbot.</p>
+
+    <!-- Chatbot θα εμφανιστεί εδώ -->
+    <div id="voiceflowChatContainer"></div>
+
     <p>Συνεχίζοντας την αλληλεπίδραση, ακολούθησε τις οδηγίες που σου δίνει το chatbot.</p>
   </div>
 
-  <!-- Voiceflow Web Chat -->
-  <div id="vf-web-chat" class="chatbot-container"></div>
-  <script src="https://cdn.voiceflow.com/widget/bundle.mjs" type="module"></script>
-  <script type="module">
-    import VoiceflowWebChat from 'https://cdn.voiceflow.com/widget/bundle.mjs';
-    
-    const vf = new VoiceflowWebChat.default({
-      versionID: '67d13d93fe835fadf86ddc3f', // Βάλε εδώ το Chatbot ID σου
-      url: 'https://general-runtime.voiceflow.com',
-      container: document.getElementById('vf-web-chat')
-    });
-    
-    vf.start();
+  <!-- Φόρτωση του widget -->
+  <script>
+    (function(d, t) {
+      var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+      v.onload = function() {
+        window.voiceflow.chat.load({
+          verify: { projectID: '67d13d93fe835fadf86ddc3f' },
+          url: 'https://general-runtime.voiceflow.com',
+          versionID: 'development',
+          render: {
+            mode: 'embedded',
+            target: document.getElementById('voiceflowChatContainer')
+          },
+          autostart: true
+        });
+      };
+      v.src = "https://cdn.voiceflow.com/widget/bundle.mjs";
+      v.type = "text/javascript";
+      s.parentNode.insertBefore(v, s);
+    })(document, 'script');
   </script>
 </body>
 </html>
+
